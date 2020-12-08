@@ -1,0 +1,29 @@
+{
+  "name": "budget-calculator",
+  "version": "1.0.0",
+  "description": "It is a simple budget calculator project made for users to track their incomes and expenses. New goal features will help users edit the list after it was submitted and alert if the expense achieves 80% of the total income.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-imagemin": "^7.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanda-luna/budget-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amanda-luna/budget-calculator/issues"
+  },
+  "homepage": "https://github.com/amanda-luna/budget-calculator#readme"
+}
