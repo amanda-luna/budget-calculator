@@ -110,6 +110,13 @@ body {
   border-radius: 3px;
 }
 
+.alert__expenses {
+  text-align: center;
+  color: #ff5049;
+  padding-top: 5px;
+  display: none;
+}
+
 /**********************************************
 *** BOTTOM PART
 **********************************************/
