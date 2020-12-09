@@ -4,6 +4,7 @@ const minifyjs = require('gulp-minify');
 const cssnano = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const optimizeimg = require('gulp-imagemin');
+const babel = require('gulp-babel');
 
 function htmlTask() {
   return src('src/*.html')
@@ -14,6 +15,7 @@ function jsTask() {
   return src('src/js/*.js')
     .pipe(sourcemaps.init())
     .pipe(concat('bundle.js'))
+    .pipe(babel({presets: ['@babel/env']}))
     .pipe(minifyjs())
     .pipe(sourcemaps.write())
     .pipe(dest('dist/js'))
