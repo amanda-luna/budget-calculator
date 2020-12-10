@@ -17,6 +17,7 @@ class TransactionList {
     this.totalIncome = document.querySelector(".budget__income--value");
     this.totalExpenses = document.querySelector(".budget__expenses--value");
     this.totalExpensesPct = document.querySelector(".budget__expenses--percentage");
+    this.alertExpensesDiv = document.querySelector(".alert__expenses");
     this.budgetDate = document.querySelector(".budget__title--month");
     this.itemValue = document.querySelector(".item__value");
     this.itemList = document.querySelectorAll(".item");
@@ -99,6 +100,13 @@ class TransactionList {
     this.transactionAmount.value = 0
   }
 
+  alertExpenseTrigger() {
+    let expensesPct = parseInt(this.totalExpensesPct.innerText.replace("%", ""));
+    if(expensesPct > 80 || isNaN(expensesPct)) {
+      this.alertExpensesDiv.style.display = "block";
+    }
+  }
+
   totalBudgetCalculator() {
     let incomeSum = this.getSumOfIncome();
     let expenseSum = this.getSumOfExpenses();
@@ -119,6 +127,7 @@ class TransactionList {
     this.totalExpenses.innerText = `- $${Math.abs(expenseSum)}`;
     this.totalBudgetValue.innerText = totalBudget;
     this.totalExpensesPct.innerText = `${totalExpensePct} %`;
+    this.alertExpenseTrigger();
   }
 
   addNewTransaction() {
