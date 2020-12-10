@@ -60,7 +60,7 @@ class TransactionList {
       incomeSum = incomeSum + parseFloat(income.amount);
     })
 
-    return incomeSum
+    return incomeSum;
   }
 
   getSumOfExpenses(){
@@ -70,7 +70,7 @@ class TransactionList {
       expenseSum = expenseSum + parseFloat(income.amount);
     })
 
-    return expenseSum
+    return expenseSum;
   }
 
 
