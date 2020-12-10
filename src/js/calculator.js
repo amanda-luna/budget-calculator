@@ -157,7 +157,6 @@ class TransactionList {
               <i class="ion-ios-compose-outline"></i>
             </button>
           </div>
-          
         </div>
         <div class="item__date">${transaction.date}</div>`;
       
@@ -208,7 +207,7 @@ class TransactionList {
   }
 
   editTransaction(transactionId, transactionDescription) {
-    let newDescription = prompt("Add Description") 
+    let newDescription = prompt("Add Description");
 
     if (!newDescription.trim().length) {
       alert("Your input is empty, please enter a transaction name!");
@@ -218,8 +217,8 @@ class TransactionList {
     transactionDescription.innerText = newDescription;
 
     if (this.findExpensesById(this.expenseList, transactionId)) {
-      const expenseToEdit = this.findExpensesById(this.expenseList, transactionId);      
-      expenseToEdit.description = newDescription;      
+      const expenseToEdit = this.findExpensesById(this.expenseList, transactionId);
+      expenseToEdit.description = newDescription;
     }
     else {
       const incomeToEdit = this.findIncomeById(this.incomeList, transactionId);
@@ -247,8 +246,6 @@ document.addEventListener("click", function(event){
     const transactionId = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute("data-transaction-id");
     const transactionDescription = document.querySelector(`[data-transaction-id="${transactionId}"]`).querySelector(".item__description")
     transactionList.editTransaction(transactionId, transactionDescription);
-
-    // document.querySelector(`[data-transaction-id="${transactionId}"]`).remove();
   }
 });
 
