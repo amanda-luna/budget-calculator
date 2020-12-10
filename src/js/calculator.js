@@ -101,8 +101,8 @@ class TransactionList {
   }
 
   alertExpenseTrigger() {
-    let expensesPct = parseInt(this.totalExpensesPct.innerText.replace("%", ""));
-    if(expensesPct > 80 || isNaN(expensesPct)) {
+    let expensesPct = this.totalExpensesPct.innerText.replace("%", "");
+    if(parseInt(expensesPct) > 80 || expensesPct.trim() === "INFINITY") {
       this.alertExpensesDiv.style.display = "block";
     } else {
       this.alertExpensesDiv.style.display = "none";
