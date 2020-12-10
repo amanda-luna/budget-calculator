@@ -1,7 +1,7 @@
 {
   "name": "budget-calculator",
   "version": "1.0.0",
-  "description": "It is a simple budget calculator project made for users to track their incomes and expenses. New goal features will help users edit the list after it was submitted and alert if the expense achieves 80% of the total income.",
+  "description": "It is a simple budget calculator project made for users to track their incomes and expenses.",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^4.0.2",
