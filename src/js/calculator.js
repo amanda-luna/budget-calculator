@@ -152,6 +152,11 @@ class TransactionList {
           <div class="item__delete">
             <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
           </div>
+          <div class="item__delete">
+            <button class="item__delete--btn">
+              <i class="ion-ios-compose-outline"></i>
+            </button>
+          </div>
         </div>
         <div class="item__date">${transaction.date}</div>`;
       
@@ -167,6 +172,11 @@ class TransactionList {
           <div class="item__delete">
             <button class="item__delete--btn">
               <i class="ion-ios-close-outline"></i>
+            </button>
+          </div>
+          <div class="item__delete">
+            <button class="item__delete--btn">
+              <i class="ion-ios-compose-outline"></i>
             </button>
           </div>
         </div>
@@ -195,6 +205,26 @@ class TransactionList {
 
     transactionList.totalBudgetCalculator();
   }
+
+  editTransaction(transactionId, transactionDescription) {
+    let newDescription = prompt("Add Description");
+
+    if (!newDescription.trim().length) {
+      alert("Your input is empty, please enter a transaction name!");
+      return;
+    }
+
+    transactionDescription.innerText = newDescription;
+
+    if (this.findExpensesById(this.expenseList, transactionId)) {
+      const expenseToEdit = this.findExpensesById(this.expenseList, transactionId);
+      expenseToEdit.description = newDescription;
+    }
+    else {
+      const incomeToEdit = this.findIncomeById(this.incomeList, transactionId);
+      incomeToEdit.description = newDescription;
+    }
+  }
 }
 
 const transactionList = new TransactionList();
@@ -210,6 +240,12 @@ document.addEventListener("click", function(event){
     transactionList.removeTransaction(transactionId);
 
     document.querySelector(`[data-transaction-id="${transactionId}"]`).remove();
+  }
+
+  if(event.target.className === "ion-ios-compose-outline") {
+    const transactionId = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute("data-transaction-id");
+    const transactionDescription = document.querySelector(`[data-transaction-id="${transactionId}"]`).querySelector(".item__description")
+    transactionList.editTransaction(transactionId, transactionDescription);
   }
 });
 
