@@ -60,7 +60,7 @@ class TransactionList {
       incomeSum = incomeSum + parseFloat(income.amount);
     })
 
-    return incomeSum;
+    return incomeSum
   }
 
   getSumOfExpenses(){
@@ -70,7 +70,7 @@ class TransactionList {
       expenseSum = expenseSum + parseFloat(income.amount);
     })
 
-    return expenseSum;
+    return expenseSum
   }
 
 
@@ -119,14 +119,14 @@ class TransactionList {
     totalExpensePct  = Math.abs(Math.round((expenseSum / incomeSum) * 100, 2));
 
     if(totalBudget > 0) {
-      totalBudget = `+ $${totalBudget}`;
+      totalBudget = `+ $${totalBudget.toFixed(2)}`;
     }
     else {
-      totalBudget = `- $${Math.abs(totalBudget)}`;
+      totalBudget = `- $${Math.abs(totalBudget.toFixed(2))}`;
     }
     
-    this.totalIncome.innerText = `+ $${incomeSum}`;
-    this.totalExpenses.innerText = `- $${Math.abs(expenseSum)}`;
+    this.totalIncome.innerText = `+ $${incomeSum.toFixed(2)}`;
+    this.totalExpenses.innerText = `- $${Math.abs(expenseSum).toFixed(2)}`;
     this.totalBudgetValue.innerText = totalBudget;
     this.totalExpensesPct.innerText = `${totalExpensePct} %`;
     this.alertExpenseTrigger();
@@ -149,7 +149,7 @@ class TransactionList {
         `<div class="item" data-transaction-id= "${transaction.transactionId}">
         <div class="item__description">${transaction.description} </div>
         <div class="right">
-          <div class="item__value">- $${(Math.abs(transaction.amount))}</div>
+          <div class="item__value">- $${(Math.abs(transaction.amount)).toFixed(2)}</div>
           <div class="item__percentage">${percentageOfExpense}%</div>
           <div class="item__delete">
             <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
@@ -170,7 +170,7 @@ class TransactionList {
         `<div class="item" data-transaction-id="${transaction.transactionId}">
         <div class="item__description">${transaction.description}</div>            
         <div class="right">
-          <div class="item__value">+ $${transaction.amount}</div>
+          <div class="item__value">+ $${Math.abs(transaction.amount).toFixed(2)}</div>
           <div class="item__delete">
             <button class="item__delete--btn">
               <i class="ion-ios-close-outline"></i>
