@@ -104,6 +104,8 @@ class TransactionList {
     let expensesPct = parseInt(this.totalExpensesPct.innerText.replace("%", ""));
     if(expensesPct > 80 || isNaN(expensesPct)) {
       this.alertExpensesDiv.style.display = "block";
+    } else {
+      this.alertExpensesDiv.style.display = "none";
     }
   }
 
